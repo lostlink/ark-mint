@@ -1,6 +1,6 @@
 import { Transactions, Utils } from "@arkecosystem/crypto";
 import ByteBuffer from "bytebuffer";
-import { IBusinessData } from "../interfaces";
+import { IMintData } from "../interfaces";
 
 const { schemas } = Transactions;
 
@@ -10,7 +10,7 @@ const BUSINESS_REGISTRATION_TYPE_GROUP = 1001;
 export class BusinessRegistrationTransaction extends Transactions.Transaction {
     public static typeGroup: number = BUSINESS_REGISTRATION_TYPE_GROUP;
     public static type: number = BUSINESS_REGISTRATION_TYPE;
-    public static key: string = "business_key";
+    public static key: string = "mint_key";
 
     public static getSchema(): Transactions.schemas.TransactionSchema {
         return schemas.extend(schemas.transactionBaseSchema, {
@@ -47,7 +47,7 @@ export class BusinessRegistrationTransaction extends Transactions.Transaction {
     public serialize(): ByteBuffer {
         const { data } = this;
 
-        const businessData = data.asset.businessData as IBusinessData;
+        const businessData = data.asset.businessData as IMintData;
 
         const nameBytes = Buffer.from(businessData.name, "utf8");
         const websiteBytes = Buffer.from(businessData.website, "utf8");
@@ -65,7 +65,7 @@ export class BusinessRegistrationTransaction extends Transactions.Transaction {
 
     public deserialize(buf: ByteBuffer): void {
         const { data } = this;
-        const businessData = {} as IBusinessData;
+        const businessData = {} as IMintData;
         const nameLength = buf.readUint8();
         businessData.name = buf.readString(nameLength);
 

@@ -1,6 +1,6 @@
 {
     "private": true,
-    "name": "@arkecosystem/custom-transactions",
+    "name": "@lostlink/ark-mint",
     "description": "Provides Minting Capabilities for Ark Core",
     "version": "0.0.1",
     "contributors": [

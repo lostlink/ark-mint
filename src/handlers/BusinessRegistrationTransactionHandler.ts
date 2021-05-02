@@ -2,7 +2,7 @@ import { Database, EventEmitter, State, TransactionPool } from "@arkecosystem/co
 import { Handlers, TransactionReader } from "@arkecosystem/core-transactions";
 import { Interfaces, Managers, Transactions } from "@arkecosystem/crypto";
 import { BusinessRegistrationAssetError, WalletIsAlreadyABusiness } from "../errors";
-import { IBusinessData } from "../interfaces";
+import { IMintData } from "../interfaces";
 import { BusinessRegistrationTransaction } from "../transactions";
 
 export class BusinessRegistrationTransactionHandler extends Handlers.TransactionHandler {
@@ -32,12 +32,12 @@ export class BusinessRegistrationTransactionHandler extends Handlers.Transaction
 
             for (const transaction of transactions) {
                 const wallet: State.IWallet = walletManager.findByPublicKey(transaction.senderPublicKey);
-                const asset: IBusinessData = {
+                const asset: IMintData = {
                     name: transaction.asset.businessData.name,
                     website: transaction.asset.businessData.website,
                 };
 
-                wallet.setAttribute<IBusinessData>("transactionWalletKeyName", asset);
+                wallet.setAttribute<IMintData>("transactionWalletKeyName", asset);
                 walletManager.reindex(wallet);
             }
         }
@@ -102,7 +102,7 @@ export class BusinessRegistrationTransactionHandler extends Handlers.Transaction
             }
         }
 
-        return null;
+        return undefined;
     }
 
     public async applyToSender(
@@ -111,7 +111,7 @@ export class BusinessRegistrationTransactionHandler extends Handlers.Transaction
     ): Promise<void> {
         await super.applyToSender(transaction, walletManager);
         const sender: State.IWallet = walletManager.findByPublicKey(transaction.data.senderPublicKey);
-        sender.setAttribute<IBusinessData>("transactionWalletKeyName", transaction.data.asset.businessData);
+        sender.setAttribute<IMintData>("transactionWalletKeyName", transaction.data.asset.businessData);
         walletManager.reindex(sender);
     }
 

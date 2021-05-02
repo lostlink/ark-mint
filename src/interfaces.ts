@@ -1,4 +1,4 @@
-export interface IBusinessData {
+export interface IMintData {
   name: string;
   website: string;
 }
