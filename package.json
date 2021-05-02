@@ -1,10 +1,10 @@
 {
   "private": true,
   "name": "@arkecosystem/custom-transactions",
-  "description": "Provides ... for Ark Core",
+  "description": "Provides Minting Capabilities for Ark Core",
   "version": "0.0.1",
   "contributors": [
-    "Your Name <your@domain.io>"
+    "Nuno Souto <nsouto@lostlink.net>"
   ],
   "license": "MIT",
   "main": "dist/index.js",
@@ -30,16 +30,16 @@
     "updates": "../../node_modules/npm-check-updates/bin/npm-check-updates -a"
   },
   "dependencies": {
-      "@arkecosystem/core-container": "2.7.1",
-      "@arkecosystem/core-event-emitter": "2.7.1",
-      "@arkecosystem/core-interfaces": "2.7.1",
-      "@arkecosystem/core-state": "2.7.1",
-      "@arkecosystem/core-transactions": "2.7.1",
-      "@arkecosystem/crypto": "2.7.1",
+    "@arkecosystem/core-container": "2.7.25",
+    "@arkecosystem/core-event-emitter": "2.7.25",
+    "@arkecosystem/core-interfaces": "2.7.25",
+    "@arkecosystem/core-state": "2.7.25",
+    "@arkecosystem/core-transactions": "2.7.25",
+    "@arkecosystem/crypto": "2.7.25",
     "bytebuffer": "5.0.1"
   },
   "devDependencies": {
-    "@arkecosystem/core-utils": "2.7.1",
+    "@arkecosystem/core-utils": "2.7.25",
     "@sindresorhus/tsconfig": "0.7.0",
     "@types/jest": "26.0.14",
     "@types/node": "12.12.47",
@@ -55,40 +55,40 @@
     "cross-env": "7.0.2",
     "del-cli": "3.0.1"
   },
-    "jest": {
-        "testEnvironment": "node",
-        "bail": true,
-        "verbose": true,
-        "transform": {
-            "^.+\\.tsx?$": "ts-jest"
-        },
-        "testMatch": [
-            "**/*.test.ts"
-        ],
-        "moduleFileExtensions": [
-            "ts",
-            "tsx",
-            "js",
-            "jsx",
-            "json",
-            "node"
-        ],
-        "collectCoverage": false,
-        "coverageDirectory": "<rootDir>/.coverage",
-        "collectCoverageFrom": [
-            "packages/**/src/**/*.ts",
-            "!**/node_modules/**"
-        ],
-        "coverageReporters": [
-            "json",
-            "lcov",
-            "text",
-            "clover",
-            "html"
-        ],
-        "watchman": false,
-        "setupFilesAfterEnv": [
-            "jest-extended"
-        ]
-    }
+  "jest": {
+    "testEnvironment": "node",
+    "bail": true,
+    "verbose": true,
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testMatch": [
+      "**/*.test.ts"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ],
+    "collectCoverage": false,
+    "coverageDirectory": "<rootDir>/.coverage",
+    "collectCoverageFrom": [
+      "packages/**/src/**/*.ts",
+      "!**/node_modules/**"
+    ],
+    "coverageReporters": [
+      "json",
+      "lcov",
+      "text",
+      "clover",
+      "html"
+    ],
+    "watchman": false,
+    "setupFilesAfterEnv": [
+      "jest-extended"
+    ]
+  }
 }
