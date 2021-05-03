@@ -10,7 +10,7 @@ const BUSINESS_REGISTRATION_TYPE_GROUP = 1001;
 export class BusinessRegistrationTransaction extends Transactions.Transaction {
     public static typeGroup: number = BUSINESS_REGISTRATION_TYPE_GROUP;
     public static type: number = BUSINESS_REGISTRATION_TYPE;
-    public static key: string = "mint_key";
+    public static key: string = "mint";
 
     public static getSchema(): Transactions.schemas.TransactionSchema {
         return schemas.extend(schemas.transactionBaseSchema, {
